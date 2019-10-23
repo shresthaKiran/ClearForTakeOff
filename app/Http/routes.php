@@ -14,3 +14,18 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/weather',[
+    'uses' => 'WeatherReportController@index',
+    'as'   => 'weather'
+]);
+
+Route::get('/search',[
+    'uses' => 'WeatherReportController@flightSearch',
+    'as'   => 'search'
+]);
+
+Route::post('/result',[
+   'uses' => "WeatherReportController@getflightDelay",
+   'as'   => 'result'
+]);
